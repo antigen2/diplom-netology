@@ -5,6 +5,16 @@ terraform {
     }
   }
   required_version = ">= 0.13"
+
+  backend "s3" {
+    endpoint   = "storage.yandexcloud.net"
+    bucket     = "netology-diplom-tf-bucket"
+    region     = "ru-central1"
+    key        = "main.tfstate"
+
+    skip_region_validation      = true
+    skip_credentials_validation = true
+  }
 }
 
 provider "yandex" {

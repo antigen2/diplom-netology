@@ -36,19 +36,6 @@ variable "private_ip" {
   ]
 }
 
-variable "public_ip" {
-  type = list(list(string))
-  default = [
-    ["192.168.110.0/24"],
-    ["192.168.120.0/24"],
-    ["192.168.130.0/24"]
-  ]
-}
-
-variable "ssh_key_private" {
-  default = "~/.ssh/id_ed25519"
-}
-
 variable "ssh_key_pub" {
   default = "~/.ssh/id_ed25519.pub"
 }
@@ -56,12 +43,12 @@ variable "ssh_key_pub" {
 locals {
   res = {
     cores = {
-      stage = 2
-      prod  = 4
+      stage = 4
+      prod  = 8
     }
     memory = {
-      stage = 2
-      prod  = 4
+      stage = 4
+      prod  = 8
     }
   }
 }
