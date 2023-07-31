@@ -162,6 +162,7 @@ max_size: "1073741824"
 acl: {}
 created_at: "2023-06-18T14:16:46.466060Z"
 ```
+![](img/ycb.png)
 Конфигурационные файлы `terraform`: \
 Листинг `vars.tf`:
 ```terraform
@@ -678,7 +679,7 @@ stable-prometheus-node-exporter           ClusterIP   10.233.38.82    <none>    
 ```
 Теперь по любому внешнему ip:31783 есть доступ к графане.
 
-Логиин/пасс: `admin`/`prom-operator`:
+Логин/пасс: `admin`/`prom-operator`:
 - http://158.160.11.73:31783
 - http://51.250.45.76:31783
 - http://51.250.64.215:31783
@@ -927,6 +928,10 @@ pipeline {
   }
 }    
 ```
+В `gitlhub` в репозитории `app` создаем `webhook` для автоматического запуска сборки и деплоя приложения.
+![](img/webhook.png)
+
+В `Jenkins` создаем необходимые креды для доступов в гит, докерхаб, кубер кластер.
 ---
 ## Что необходимо для сдачи задания?
 
@@ -938,6 +943,15 @@ pipeline {
 6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
 
-
+- Terraform: [https://github.com/antigen2/diplom-netology/tree/main/src/terraform](https://github.com/antigen2/diplom-netology/tree/main/src/terraform)
+- Kubespray: [https://github.com/antigen2/diplom-netology/tree/main/src/kubespray](https://github.com/antigen2/diplom-netology/tree/main/src/kubespray)
+- Dockerfile app: [https://github.com/antigen2/app/blob/main/Dockerfile](https://github.com/antigen2/app/blob/main/Dockerfile)
+- DockerImage app: [https://hub.docker.com/layers/antigen2/app/1.0.0/images/sha256-0ffca276b15ce0054f532e5374ff87d7d16c8add7c4a9c4342610b22318a48b2?context=repo](https://hub.docker.com/layers/antigen2/app/1.0.0/images/sha256-0ffca276b15ce0054f532e5374ff87d7d16c8add7c4a9c4342610b22318a48b2?context=repo)
+- K8s config: [https://github.com/antigen2/diplom-netology/tree/main/src/config](https://github.com/antigen2/diplom-netology/tree/main/src/config)
+- App: [http://158.160.11.73:30080/](http://158.160.11.73:30080/)
+- Jenkins: [http://158.160.11.73:8080/](http://158.160.11.73:8080/)
+    - Логин/пасс: `gramm`/`123qweasd`
+- Grafana: [http://158.160.11.73:31783](http://158.160.11.73:31783)
+    - Логин/пасс: `admin`/`prom-operator`
 
 ---
